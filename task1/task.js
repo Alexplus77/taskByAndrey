@@ -37,7 +37,7 @@ const tickets = (arr) => {
 
 
 
-//console.log(tickets([25, 25, 50]))// Yes
+console.log(tickets([25, 25, 50]))// Yes
 //console.log(tickets([25, 100]))// No
- console.log(tickets([25, 25, 50, 50, 100]))// У меня "Yes".Почему у тебя "No"? Ведь он дает 100, а в кассе 150, 75 сдачи есть.
+ //console.log(tickets([25, 25, 50, 50, 100]))// No
 
