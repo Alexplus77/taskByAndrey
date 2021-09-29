@@ -32,11 +32,6 @@ const tickets = (arr) => {
  }
     return 'Yes'
 }
-
-
-
-
-
 console.log(tickets([25, 25, 50]))// Yes
 //console.log(tickets([25, 100]))// No
  //console.log(tickets([25, 25, 50, 50, 100]))// No
