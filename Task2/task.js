@@ -64,7 +64,6 @@ const minUmbrellas = (weather) => {
            return countHomeUmbrellas
         }
         if (!badWeather.includes(elem) && badWeather.includes(day[i]) && countWorkUmbrellas ) {
-            console.log(countHomeUmbrellas, countWorkUmbrellas)
             countHomeUmbrellas++
             return countHomeUmbrellas
         } else {
