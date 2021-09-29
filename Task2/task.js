@@ -36,12 +36,11 @@ let countHomeUmbrellas=0
 let countWorkUmbrellas=0
 
 const createWeatherForDay = (weather) => {
-    weather.forEach((elem, i) => {
+   return  weather.forEach((elem, i) => {
         if (i % 2 === 0) {
-            morning.push(elem)
-
+             morning.push(elem)
         } else if (i % 2 > 0) {
-            day.push(elem)
+             day.push(elem)
         }
     })
 }
@@ -50,7 +49,7 @@ const minUmbrellas = (weather) => {
 
     createWeatherForDay(weather)
 
-    morning.forEach((elem, i) => {
+   return  morning.forEach((elem, i) => {
         if (!badWeather.includes(elem) && !badWeather.includes(day[i])) {
             return
         }
@@ -73,8 +72,9 @@ const minUmbrellas = (weather) => {
     };
 
 
-minUmbrellas(["rainy", "rainy", "rainy", "rainy", "thunderstorms", "rainy"])
+
 minUmbrellas(["rainy", "clear", "rainy", "cloudy"])//2
  minUmbrellas(["sunny", "windy", "sunny", "clear"])//0
 minUmbrellas(["clear", "rainy" , "cloudy", "rainy"])//2
 
+console.log(minUmbrellas(["rainy", "rainy", "rainy", "rainy", "thunderstorms", "rainy"]))
