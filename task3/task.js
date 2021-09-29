@@ -25,16 +25,21 @@ let bill =500
 let count = 0
 
 const issuanceBills = (needSum) =>{
-if(needSum<10 || needSum===0){
-  return
+if(needSum<10){
+    console.log('Невозможно выдать')
+  return 'No'
 }else{
     count++
     const i= bills.indexOf(bill)
+    // if((needSum-bill)<0){
+    //     const idx=bills.findIndex(elem=>elem<needSum)
+    //     bill=bills[idx] } подумать
+else if(needSum<bill ){bill=bills[i-1]}
     needSum= needSum-bill
-    if(needSum<bill ){bill=bills[i-1]}
+
     console.log(needSum, count)
    return  issuanceBills(needSum)
 }
 }
 
-issuanceBills(890)
+issuanceBills(770)
