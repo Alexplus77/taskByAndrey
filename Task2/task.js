@@ -55,24 +55,27 @@ const minUmbrellas = (weather) => {
             return
         }
         if (badWeather.includes(elem) && badWeather.includes(day[i])) {
-
-            return countHomeUmbrellas = 1
+            countHomeUmbrellas = 1
+            return countHomeUmbrellas
         }
         if (badWeather.includes(elem) && !badWeather.includes(day[i])) {
+            countHomeUmbrellas++
             countWorkUmbrellas++
-            return countHomeUmbrellas++
+           return countHomeUmbrellas
         }
-        if (!badWeather.includes(elem) && badWeather.includes(day[i]) && countWorkUmbrellas) {
-            return countHomeUmbrellas++
+        if (!badWeather.includes(elem) && badWeather.includes(day[i]) && countWorkUmbrellas ) {
+            console.log(countHomeUmbrellas, countWorkUmbrellas)
+            countHomeUmbrellas++
+            return countHomeUmbrellas
         } else {
             countWorkUmbrellas--
         }
     })
-};
+    };
 
 
+minUmbrellas(["rainy", "rainy", "rainy", "rainy", "thunderstorms", "rainy"])
+minUmbrellas(["rainy", "clear", "rainy", "cloudy"])//2
+ minUmbrellas(["sunny", "windy", "sunny", "clear"])//0
+minUmbrellas(["clear", "rainy" , "cloudy", "rainy"])//2
 
-// minUmbrellas(["rainy", "clear", "rainy", "cloudy"])//2
-// minUmbrellas(["sunny", "windy", "sunny", "clear"])//0
-// minUmbrellas(["clear", "rainy" , "cloudy", "rainy"])//2
-console.log( minUmbrellas(["rainy", "rainy", "rainy", "rainy", "thunderstorms", "rainy"]))
