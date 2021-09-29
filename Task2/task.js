@@ -32,7 +32,7 @@
 const morning = []
 const day = []
 const badWeather = ["rainy", "thunderstorms"]
-let countHomeUmbrellas=0
+let countHomeUmbrellas=null
 let countWorkUmbrellas=0
 
 const createWeatherForDay = (weather) => {
@@ -49,32 +49,33 @@ const minUmbrellas = (weather) => {
 
     createWeatherForDay(weather)
 
-   return  morning.forEach((elem, i) => {
+   return  morning.map((elem, i) => {
         if (!badWeather.includes(elem) && !badWeather.includes(day[i])) {
-            return
+            return 0
         }
         if (badWeather.includes(elem) && badWeather.includes(day[i])) {
             countHomeUmbrellas = 1
             return countHomeUmbrellas
         }
         if (badWeather.includes(elem) && !badWeather.includes(day[i])) {
-            countHomeUmbrellas++
+            countHomeUmbrellas ++
             countWorkUmbrellas++
            return countHomeUmbrellas
         }
-        if (!badWeather.includes(elem) && badWeather.includes(day[i]) && countWorkUmbrellas ) {
+        if (!badWeather.includes(elem) && badWeather.includes(day[i]) && countWorkUmbrellas) {
             countHomeUmbrellas++
             return countHomeUmbrellas
         } else {
             countWorkUmbrellas--
+            countHomeUmbrellas--
         }
-    })
+       console.log(countHomeUmbrellas, countWorkUmbrellas)
+    }).unshift()
     };
 
 
 
-minUmbrellas(["rainy", "clear", "rainy", "cloudy"])//2
- minUmbrellas(["sunny", "windy", "sunny", "clear"])//0
-minUmbrellas(["clear", "rainy" , "cloudy", "rainy"])//2
 
-console.log(minUmbrellas(["rainy", "rainy", "rainy", "rainy", "thunderstorms", "rainy"]))
+console.log(minUmbrellas(["rainy", "clear", "rainy", "cloudy"]))//2
+//console.log(minUmbrellas(["sunny", "windy", "sunny", "clear"]))//0
+//console.log(minUmbrellas(["rainy", "rainy", "rainy", "rainy", "thunderstorms", "rainy"]))//1
