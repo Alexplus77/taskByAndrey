@@ -11,32 +11,32 @@
  1250 - 4 500 + 500 + 200 + 500
  * **/
 
-const bills={
-    10:0,
-    20:0,
-    50:0,
-    100:0,
-    200:0,
-    500:0
-}
-let bill = 500
+// const bills={
+//     10:0,
+//     20:0,
+//     50:0,
+//     100:0,
+//     200:0,
+//     500:0
+// }
 
-//let bill =Math.max.apply(null, bills)
-let remains = 0
+const bills=[10, 20, 50, 100, 200, 500]
+let bill =500
+let count = 0
+
 const issuanceBills = (needSum) =>{
 
-if(((needSum-remains)-bill) >=0){
-    bills[bill]++
-    remains= needSum-bill
+if(needSum<10 || needSum===0){
+  return
+
 }else{
-    delete bills[bill]
-    bill =200
-    bills[bill]++
-    remains=remains-bill
+    count++
+    const i= bills.indexOf(bill)
+    needSum= needSum-bill
+    if(needSum<=bill ){bill=bills[i-1]}
+    console.log(needSum, count)
+   return  issuanceBills(needSum)
 }
-    console.log(bills)
-
-
 }
 
-issuanceBills(700)
+issuanceBills(900)
