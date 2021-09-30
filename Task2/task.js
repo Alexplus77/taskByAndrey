@@ -49,7 +49,7 @@ const minUmbrellas = (weather) => {
 
     createWeatherForDay(weather)
 
-   return  morning.map((elem, i) => {
+     morning.forEach((elem, i) => {
         if (!badWeather.includes(elem) && !badWeather.includes(day[i])) {
             return 0
         }
@@ -70,7 +70,8 @@ const minUmbrellas = (weather) => {
             countHomeUmbrellas--
         }
        console.log(countHomeUmbrellas, countWorkUmbrellas)
-    }).unshift()
+    })
+    return countHomeUmbrellas
     };
 
 
