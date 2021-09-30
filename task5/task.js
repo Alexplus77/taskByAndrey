@@ -23,7 +23,7 @@ const howMuchILoveYou = (petals) => {
     const setWords = ['I love you', 'a little', 'a lot', 'passionately', 'madly', 'not at all']
 
     while (petals > setWords.length) {
-        petals = petals - setWords.length
+        petals -=  setWords.length
     }
     return setWords[petals - 1]
 }
