@@ -28,7 +28,11 @@ const howMuchILoveYou = (petals) => {
     return setWords[petals - 1]
 }
 
+const countPetals= Math.floor( Math.random()*100)
+
+console.log(howMuchILoveYou(countPetals))// randomWords
 console.log(howMuchILoveYou(7))//"I love you"
 console.log(howMuchILoveYou(6))//"not at all"
 console.log(howMuchILoveYou(3))//"a lot"
 console.log(howMuchILoveYou(1000))//"passionately"
+
