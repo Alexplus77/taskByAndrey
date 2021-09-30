@@ -34,6 +34,6 @@ while(needSum>=bill){
 })
     return countBill
 }
-console.log(issuanceBills(1020))
+console.log(issuanceBills(20))
 
 
