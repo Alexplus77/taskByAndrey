@@ -12,10 +12,14 @@ const validateBracket = (bracket) => {
            const arrBracket = bracket.split('')
     if(arrBracket[0] !== '('){return false}
 
-arrBracket.forEach(bracket=>{
-   if( bracket==='(' ){ count++ }else if(bracket===')'){ count--}
+for (let i=0; i<arrBracket.length; i++){
+    const bracketOne=arrBracket[i]
+    if( bracketOne==='(' ){ count++ }else if(bracketOne===')'){ count--}
     console.log(count)
-})
+}
+
+
+
 
     return count === 0
 }
