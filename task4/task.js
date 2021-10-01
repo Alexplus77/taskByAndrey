@@ -15,12 +15,9 @@ const validateBracket = (bracket) => {
 for (let i=0; i<arrBracket.length; i++){
     const bracketOne=arrBracket[i]
     if( bracketOne==='(' ){ count++ }else if(bracketOne===')'){ count--}
+    if(count===-1){return  false}
     console.log(count)
 }
-
-
-
-
     return count === 0
 }
 
@@ -28,5 +25,5 @@ for (let i=0; i<arrBracket.length; i++){
  //console.log(validateBracket(")(()))"))//false
  //console.log(validateBracket("(())((()())())"))//true
 // console.log(validateBracket("("))//false
-//console.log(validateBracket("())(()"))//true???
-console.log(validateBracket("())("))//true???
+//console.log(validateBracket("())(()"))//false!!!
+console.log(validateBracket("())("))//false!!!
