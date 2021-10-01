@@ -24,6 +24,6 @@ const validateBracket = (bracket) => {
 // console.log(validateBracket("()"))//true
 //console.log(validateBracket(")(()))"))//false
 //console.log(validateBracket("(())((()())())"))//true
-// console.log(validateBracket("("))//false
+ console.log(validateBracket("("))//false
 //console.log(validateBracket("())(()"))//false!!!
-console.log(validateBracket("())("))//false!!!
+//console.log(validateBracket("())("))//false!!!

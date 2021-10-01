@@ -20,20 +20,23 @@
 //     500:0
 // }
 
-const bills=[10, 20, 50, 100, 200, 500]
+const bills = [10, 20, 50, 100, 200, 500]
 
 let countBill = 0
 
-const issuanceBills = (needSum) =>{
-bills.reverse()
- bills.forEach(bill=>{
-while(needSum>=bill){
-   countBill++
-   needSum-=bill
-}
-})
+const issuanceBills = (needSum) => {
+    bills.reverse()
+    bills.forEach(bill => {
+        while (needSum >= bill) {
+            countBill++
+            needSum -= bill
+        }
+    })
+    if (needSum > 0 && needSum < 10) {
+        return -1
+    }
     return countBill
 }
-console.log(issuanceBills(20))
+console.log(issuanceBills(42))
 
 
