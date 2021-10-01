@@ -10,6 +10,7 @@
 let count=0
 const validateBracket = (bracket) => {
            const arrBracket = bracket.split('')
+    if(arrBracket[0] !== '('){return false}
 
 arrBracket.forEach(bracket=>{
    if( bracket==='(' ){ count++ }else if(bracket===')'){ count--}
