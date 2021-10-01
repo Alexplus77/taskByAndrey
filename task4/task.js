@@ -10,9 +10,6 @@
 let count = 0
 const validateBracket = (bracket) => {
     const arrBracket = bracket.split('')
-    if (arrBracket[0] !== '(') {
-        return false
-    }
 
     for (let i = 0; i < arrBracket.length; i++) {
         const bracketOne = arrBracket[i]
