@@ -7,23 +7,26 @@
  "("               =>  false
  "(())((()())())"  =>  true
  **/
-let count=0
+let count = 0
 const validateBracket = (bracket) => {
-           const arrBracket = bracket.split('')
-    if(arrBracket[0] !== '('){return false}
+    const arrBracket = bracket.split('')
+    if (arrBracket[0] !== '(') {
+        return false
+    }
 
-for (let i=0; i<arrBracket.length; i++){
-    const bracketOne=arrBracket[i]
-    if( bracketOne==='(' ){ count++ }else if(bracketOne===')'){ count--}
-    if(count===-1){return  false}
-    console.log(count)
-}
+    for (let i = 0; i < arrBracket.length; i++) {
+        const bracketOne = arrBracket[i]
+        bracketOne === '(' ? count++ : count--
+        if (count === -1) {
+            return false
+        }
+    }
     return count === 0
 }
 
 // console.log(validateBracket("()"))//true
- //console.log(validateBracket(")(()))"))//false
- //console.log(validateBracket("(())((()())())"))//true
+//console.log(validateBracket(")(()))"))//false
+//console.log(validateBracket("(())((()())())"))//true
 // console.log(validateBracket("("))//false
 //console.log(validateBracket("())(()"))//false!!!
 console.log(validateBracket("())("))//false!!!
