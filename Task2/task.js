@@ -29,54 +29,26 @@
 
  **/
 
-const morning = []
-const day = []
-const badWeather = ["rainy", "thunderstorms"]
-let countHomeUmbrellas=null
-let countWorkUmbrellas=0
 
-const createWeatherForDay = (weather) => {
-   return  weather.forEach((elem, i) => {
-        if (i % 2 === 0) {
-             morning.push(elem)
-        } else if (i % 2 > 0) {
-             day.push(elem)
-        }
-    })
-}
+
+
+
+
 
 const minUmbrellas = (weather) => {
-
-    createWeatherForDay(weather)
-
-     morning.forEach((elem, i) => {
-        if (!badWeather.includes(elem) && !badWeather.includes(day[i])) {
-            return 0
-        }
-        if (badWeather.includes(elem) && badWeather.includes(day[i])) {
-            countHomeUmbrellas = 1
-            return countHomeUmbrellas
-        }
-        if (badWeather.includes(elem) && !badWeather.includes(day[i])) {
-            countHomeUmbrellas ++
-            countWorkUmbrellas++
-           return countHomeUmbrellas
-        }
-        if (!badWeather.includes(elem) && badWeather.includes(day[i]) && countWorkUmbrellas) {
-            countHomeUmbrellas++
-            return countHomeUmbrellas
-        } else {
-            countWorkUmbrellas--
-            countHomeUmbrellas--
-        }
-       console.log(countHomeUmbrellas, countWorkUmbrellas)
+    const rain = ['rainy', "thunderstorms"];
+    const noRain = ["sunny", "windy", "clear", "cloudy"];
+    let home = 0
+    if(weather.every(elem=>noRain.includes(elem))){return 0}
+const findRain=weather.filter(elem=>rain.includes(elem))
+if(findRain.length===weather.length){return 1}
+    weather.forEach(elem=>{
+        if(rain.includes(elem)){home++}
     })
-    return countHomeUmbrellas
+return home
+
     };
-
-
-
-
-console.log(minUmbrellas(["rainy", "clear", "rainy", "cloudy"]))//2
+//console.log(minUmbrellas(["sunny", "windy", "sunny", "clear"]))
+//console.log(minUmbrellas(["rainy", "clear", "rainy", "cloudy"]))//2
 //console.log(minUmbrellas(["sunny", "windy", "sunny", "clear"]))//0
 //console.log(minUmbrellas(["rainy", "rainy", "rainy", "rainy", "thunderstorms", "rainy"]))//1
