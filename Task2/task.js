@@ -28,26 +28,27 @@
  // Because he only needs 1 umbrella which he takes on every journey.
 
  **/
-
-
-
-
-
-
-
 const minUmbrellas = (weather) => {
     const rain = ['rainy', "thunderstorms"];
     const noRain = ["sunny", "windy", "clear", "cloudy"];
-    let home = 0
-    if(weather.every(elem=>noRain.includes(elem))){return 0}
-const findRain=weather.filter(elem=>rain.includes(elem))
-if(findRain.length===weather.length){return 1}
-    weather.forEach(elem=>{
-        if(rain.includes(elem)){home++}
-    })
-return home
 
-    };
+    let home = 0
+
+    if (weather.every(elem => noRain.includes(elem))) {
+        return 0
+    }
+    const findRain = weather.filter(elem => rain.includes(elem))
+    if (findRain.length === weather.length) {
+        return 1
+    }
+    weather.forEach(elem => {
+        if (rain.includes(elem)) {
+            home++
+        }
+    })
+    return home
+
+};
 //console.log(minUmbrellas(["sunny", "windy", "sunny", "clear"]))
 //console.log(minUmbrellas(["rainy", "clear", "rainy", "cloudy"]))//2
 //console.log(minUmbrellas(["sunny", "windy", "sunny", "clear"]))//0
