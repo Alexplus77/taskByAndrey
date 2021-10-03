@@ -28,54 +28,47 @@
  // Because he only needs 1 umbrella which he takes on every journey.
 
  **/
-
-const morning = []
-const day = []
-const badWeather = ["rainy", "thunderstorms"]
-let countHomeUmbrellas=null
-let countWorkUmbrellas=0
-
-const createWeatherForDay = (weather) => {
-   return  weather.forEach((elem, i) => {
-        if (i % 2 === 0) {
-             morning.push(elem)
-        } else if (i % 2 > 0) {
-             day.push(elem)
-        }
-    })
-}
-
 const minUmbrellas = (weather) => {
+    const rain = ['rainy', "thunderstorms"];
+    const noRain = ["sunny", "windy", "clear", "cloudy"];
 
-    createWeatherForDay(weather)
-
-   return  morning.map((elem, i) => {
-        if (!badWeather.includes(elem) && !badWeather.includes(day[i])) {
-            return 0
+    let home = 0
+    let work = 0
+    if (weather.every(elem => noRain.includes(elem))) {
+        return 0
+    }
+    const findRain = weather.filter(elem => rain.includes(elem))
+    if (findRain.length === weather.length) {
+        return 1
+    }
+    weather.forEach((elem, i) => {
+        if (i % 2 === 0) {
+            console.log(elem)
+            if (rain.includes(elem)) {
+                home--
+                work++
+            }
         }
-        if (badWeather.includes(elem) && badWeather.includes(day[i])) {
-            countHomeUmbrellas = 1
-            return countHomeUmbrellas
+        if (i % 2 > 0) {
+            if (rain.includes(elem)) {
+                if (work > 1) {
+                    work--
+                    home++
+                } else {
+                    work++
+                    home--
+                }
+            }
         }
-        if (badWeather.includes(elem) && !badWeather.includes(day[i])) {
-            countHomeUmbrellas ++
-            countWorkUmbrellas++
-           return countHomeUmbrellas
-        }
-        if (!badWeather.includes(elem) && badWeather.includes(day[i]) && countWorkUmbrellas) {
-            countHomeUmbrellas++
-            return countHomeUmbrellas
-        } else {
-            countWorkUmbrellas--
-            countHomeUmbrellas--
-        }
-       console.log(countHomeUmbrellas, countWorkUmbrellas)
-    }).unshift()
-    };
 
 
+    })
 
-
-console.log(minUmbrellas(["rainy", "clear", "rainy", "cloudy"]))//2
+    return home + work
+};
+console.log(minUmbrellas(['rainy', 'windy', 'clear', 'clear', 'clear', 'thunderstorms', 'rainy', 'clear', 'rainy', 'clear']))//2
+//console.log(minUmbrellas(['sunny','windy','sunny','sunny','thunderstorms','cloudy','sunny','thunderstorms','clear','windy' ]))//2
+//console.log(minUmbrellas(["sunny", "windy", "sunny", "clear"]))
+//console.log(minUmbrellas(["rainy", "clear", "rainy", "cloudy"]))//2
 //console.log(minUmbrellas(["sunny", "windy", "sunny", "clear"]))//0
 //console.log(minUmbrellas(["rainy", "rainy", "rainy", "rainy", "thunderstorms", "rainy"]))//1
