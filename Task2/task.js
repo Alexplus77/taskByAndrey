@@ -35,6 +35,7 @@ const minUmbrellas = (weather) => {
     let work = 0
 
     weather.forEach((elem, i) => {
+        //Дом
         if (i % 2 === 0) {
             if (rain.includes(elem)) {
                 if (home > 0) {
@@ -45,10 +46,13 @@ const minUmbrellas = (weather) => {
                 }
             }
         }
+        //Работа
         if (i % 2) {
             if (rain.includes(elem)) {
                 if (work > 0) {
                     work--
+                    home++
+                } else{
                     home++
                 }
             }
@@ -58,8 +62,8 @@ const minUmbrellas = (weather) => {
     return home + work
 };
 //console.log(minUmbrellas(['rainy', 'windy', 'clear', 'clear', 'clear', 'thunderstorms', 'rainy', 'clear', 'rainy', 'clear']))//2
-//console.log(minUmbrellas(['sunny','windy','sunny','sunny','thunderstorms','cloudy','sunny','thunderstorms','clear','windy' ]))//2
+console.log(minUmbrellas(['sunny','windy','sunny','sunny','thunderstorms','cloudy','sunny','thunderstorms','clear','windy' ]))//2
 //console.log(minUmbrellas(["sunny", "windy", "sunny", "clear"]))
 //console.log(minUmbrellas(["rainy", "clear", "rainy", "cloudy"]))//2
-console.log(minUmbrellas(["sunny", "windy", "sunny", "clear"]))//0
+//console.log(minUmbrellas(["sunny", "windy", "sunny", "clear"]))//0
 //console.log(minUmbrellas(["rainy", "rainy", "rainy", "rainy", "thunderstorms", "rainy"]))//1
