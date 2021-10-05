@@ -16,7 +16,12 @@
  Примечание: Для 4 или более имен число в "и 2 других" просто увеличивается.
  **/
 function likes(names) {
-    // TODO
+   return names.map((elem, i)=>{
+       if(names.length>1){
+           return ``
+       }
+
+   })
 }
 
 likes(["Jacob", "Alex"]  )
