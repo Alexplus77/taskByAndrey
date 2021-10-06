@@ -11,7 +11,14 @@
  **/
 
 function pageDigits(pages) {
-    return
+    let page=0
+if(pages%9>=0){
+    page=(pages%9)*2
+}else {
+    page=pages
+}
+    console.log(pages%9, )
+    return page
 }
 
-console.log(pageDigits(10))
+console.log(pageDigits(12))
