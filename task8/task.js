@@ -40,4 +40,4 @@ return answer.join(' ')
 }
 
 
-console.log(likes(["Max", "John", "Mark"]))
+console.log(likes(["Max", "John", "Mark", "Alex", "Jacob", "Mark", "Max"]))
