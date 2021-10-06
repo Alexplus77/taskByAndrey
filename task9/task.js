@@ -11,14 +11,11 @@
  **/
 
 function pageDigits(pages) {
-    let page=0
-if(pages%9>=0){
-    page=(pages%9)*2
-}else {
-    page=pages
-}
-    console.log(pages%9, )
-    return page
+    const pagesLength=String(pages).split('').length
+       if(pagesLength>1){
+       return (pages*2n-10n)+BigInt(pagesLength)-1n
+    }else {return pages}
+
 }
 
-console.log(pageDigits(12))
+console.log(pageDigits(400000000000000000n))
