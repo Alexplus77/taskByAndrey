@@ -15,7 +15,7 @@ let count = 0
 const persistent = (num) => {
     const arrNum = String(num).split('')
     if (arrNum.length === 1) {
-        return count
+        return count //Как здесь обнулить count?
     } else  {
         count++
         return persistent(arrNum.reduce((acc, digit) => acc * Number(digit), 1))
