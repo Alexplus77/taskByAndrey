@@ -23,14 +23,16 @@ function fridayTheThirteenths(start, end) {
 
     if (!end) {
         end = start
-    }
-    if (start % 4 === 0 || end % 4 === 0) {
         month--
     }
+    console.log(new Date(start).setDate(1))
     while (new Date(start, month, 13) - new Date(end, 11, 13) < 0) {
-
-        if (new Date(start, month, 13).toLocaleString('en-En', {weekday: 'long'}) === 'Friday') {
-            arr.push(new Intl.DateTimeFormat('en-Us').format(new Date(start, month, 13)))
+        if (start % 4 === 0 ) {
+            new Date(start, 2, 28).setDate(29)
+        }
+        if (new Date(start, month, 13).getDay()===5) {
+           const dateUs= new Intl.DateTimeFormat('en-Us').format(new Date(start, month, 13))
+            arr.push(dateUs)
         }
         month++
     }
@@ -38,4 +40,4 @@ function fridayTheThirteenths(start, end) {
 }
 
 
-console.log(fridayTheThirteenths(1905, 1915))
+console.log(fridayTheThirteenths(1946))
