@@ -20,8 +20,7 @@ const persistent = (num) => {
         count++
         return persistent(arrNum.reduce((acc, digit) => acc * Number(digit), 1))
     }
-
-
 }
+
 console.log(persistent(39))
 console.log(persistent(999))
