@@ -11,15 +11,21 @@
 
  persistence(4) === 0 // because 4 is already a one-digit number
  * **/
-let count = 0
+
 const persistent = (num) => {
+    let count = 0
     const arrNum = String(num).split('')
-    if (arrNum.length === 1) {
-        return count //Как здесь обнулить count?
-    } else  {
+    while (num>arrNum[arrNum.length-1]){
+      num=arrNum.reduce((acc, digit) => acc * Number(digit), 1)
         count++
-        return persistent(arrNum.reduce((acc, digit) => acc * Number(digit), 1))
     }
+    return count
+    // if (arrNum.length === 1) {
+    //     return count //Как здесь обнулить count?
+    // } else  {
+    //     count++
+    //     return persistent(arrNum.reduce((acc, digit) => acc * Number(digit), 1))
+    // }
 }
 
 console.log(persistent(39))
