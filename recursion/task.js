@@ -27,7 +27,7 @@ const obj2 = {
 const getNestedProp = (obj, path) => {
     const arrPath=path.split('.')
     if(!obj[arrPath[0]]){return "Ошибка!!! Не найдено."}
-     if(typeof obj[arrPath[0]]==="string"){
+     if(typeof obj[arrPath[0]] !== "object"){
          return obj[arrPath[0]]
      } else{
          obj=obj[arrPath.splice(0, 1)]
