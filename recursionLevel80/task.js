@@ -30,7 +30,7 @@ whatISee('1259',5)
 let arr=[]
 const whatISee = (number, iterations) => {
     let count=0
-    const arrNumber = String(number).split('')
+    const arrNumber = number.split('')
     if(arr.length===iterations){
         return arr
     }else{
