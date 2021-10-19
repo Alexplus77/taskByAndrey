@@ -26,23 +26,27 @@ whatISee('1259',5)
 
 
 let arr=[]
+let count=0
 const whatISee = (number, iterations) => {
-let result2 = {}
-   if(arr.length===iterations){
-       return arr
-   } else {
-       const arrNumber = String(number).split('')
-       const result = arrNumber.reduce((acc, num) => {
-           acc[num] = acc[num] + 1 || 1
-           console.log(acc) //Можно ли здесь поменять местами ключ:значение?
-           return  acc
-       }, {})
 
-       number = Object.entries(result).map((elem) =>elem.join('')).join('')
 
-       arr.push(number)
-       return whatISee(number, iterations)
-   }
+    const arrNumber = String(number).split('')
+    if(arr.length===iterations){
+        return arr
+    }else{
+   const a= arrNumber.map((num, i)=>{
+        count++
+        if(num!==arrNumber[i+1]){
+
+            number=`${count}${num}`
+            count=0
+            return number
+        }
+    })
+        console.log(a.join(''))
+       //return whatISee(a.join(''), iterations)
+    }
+
 }
 
 
