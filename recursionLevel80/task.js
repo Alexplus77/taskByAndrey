@@ -26,10 +26,10 @@ whatISee('1259',5)
 
 
 
-let count=0
+
 let arr=[]
 const whatISee = (number, iterations) => {
-
+    let count=0
     const arrNumber = String(number).split('')
     if(arr.length===iterations){
         return arr
