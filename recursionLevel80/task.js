@@ -25,10 +25,10 @@ whatISee('1259',5)
 */
 
 
-let arr=[]
-let count=0
-const whatISee = (number, iterations) => {
 
+let count=0
+let arr=[]
+const whatISee = (number, iterations) => {
 
     const arrNumber = String(number).split('')
     if(arr.length===iterations){
@@ -37,18 +37,16 @@ const whatISee = (number, iterations) => {
    const a= arrNumber.map((num, i)=>{
         count++
         if(num!==arrNumber[i+1]){
-
             number=`${count}${num}`
             count=0
             return number
         }
     })
-        console.log(a.join(''))
-       //return whatISee(a.join(''), iterations)
+        arr.push(a.join(''))
+       return whatISee(a.join(''), iterations)
     }
-
 }
 
 
 console.log(whatISee('1', 5))
-//console.log(whatISee('12259', 5))
+//console.log(whatISee('1259', 5))
