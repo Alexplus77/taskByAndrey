@@ -1,5 +1,5 @@
 /*
-
+Задача Look and say numbers
 Функция принимает число - в виде строки и вторым аргументом кол-во итераций
 
 whatISee('1',5) - 1 число и пять итераций
@@ -35,7 +35,7 @@ const whatISee = (number, iterations) => {
         arrNumber.forEach((num, i) => {
             count++
             if (num !== arrNumber[i + 1]) {
-                result = `${count}${num}`
+                result += `${count}${num}`
                 count = 0
             }
 
