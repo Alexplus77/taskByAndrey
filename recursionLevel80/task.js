@@ -25,26 +25,24 @@ whatISee('1259',5)
 */
 
 
-
-
-let arr=[]
 const whatISee = (number, iterations) => {
-    let count=0
+    let result = ''
+    let count = 0
     const arrNumber = number.split('')
-    if(arr.length===iterations){
-        return arr
-    }else{
-   const a= arrNumber.map((num, i)=>{
-        count++
-        if(num!==arrNumber[i+1]){
-            number=`${count}${num}`
-            count=0
-            return number
-        }
-    })
-        arr.push(a.join(''))
-       return whatISee(a.join(''), iterations)
+    if (iterations === 0) {
+        return []
+    } else {
+        arrNumber.forEach((num, i) => {
+            count++
+            if (num !== arrNumber[i + 1]) {
+                result = `${count}${num}`
+                count = 0
+            }
+
+        })
+        return [].concat(result, ...whatISee(result, iterations - 1))
     }
+
 }
 
 
