@@ -34,4 +34,5 @@ console.log(sumTheTreeValues({
     left: {value: 1, left: null, right: null},
     right: {value: 2, left: null, right: null}
 }))
-console.log()
+
+
