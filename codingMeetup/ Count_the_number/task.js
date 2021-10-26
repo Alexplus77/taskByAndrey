@@ -22,8 +22,8 @@
  **/
 
 function countDevelopers(list) {
-   return list.reduce((acc, {continent})=>{
-       continent==='Europe' ? acc.push(continent) :  null
+   return list.reduce((acc, {continent, language})=>{
+       continent==='Europe' && language==='JavaScript' ? acc.push(continent) :  null
        return acc
    },[]).length || 0
 }
