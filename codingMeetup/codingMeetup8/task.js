@@ -19,7 +19,7 @@
  * **/
 const allContinents=(list)=>{
     const continentList=['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
-    list.map(({continent})=> continentList.splice(continentList.indexOf(continent),1))
+    list.forEach(({continent})=> continentList.splice(continentList.indexOf(continent),1))
     console.log(continentList)
     return continentList.length===0
 }
