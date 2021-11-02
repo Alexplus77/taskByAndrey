@@ -24,11 +24,14 @@
  Входной массив всегда будет действительным и отформатированным, как в приведенном выше примере.
  Возраст представлен числом, которое может быть любым положительным целым числом до 199.
  * **/
-const isAgeDiverse = (list) => [...new Set(list.map(({age}) => (Math.floor(age / 10))))].sort((a, b) => a - b).every((elem, i) => elem === i + 1 || elem >= 10)
+const isAgeDiverse = (list) => [...new Set(list.reduce((acc, {age})=>{
+    age>10 && acc.push(Math.floor(age/10))
+    return acc
+},[]))].sort((a,b)=>a-b).every((decades,i)=>decades===i+1 || decades>=10)
 
 
 console.log(isAgeDiverse([
-    {firstName: 'Harry', lastName: 'K.', country: 'Brazil', continent: 'Americas', age: 129, language: 'Python'},
+    {firstName: 'Harry', lastName: 'K.', country: 'Brazil', continent: 'Americas', age:9, language: 'Python'},
     {firstName: 'Harry', lastName: 'K.', country: 'Brazil', continent: 'Americas', age: 19, language: 'Python'},
     {firstName: 'Kseniya', lastName: 'T.', country: 'Belarus', continent: 'Europe', age: 29, language: 'JavaScript'},
     {firstName: 'Jing', lastName: 'X.', country: 'China', continent: 'Asia', age: 39, language: 'Ruby'},
