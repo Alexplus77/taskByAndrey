@@ -25,7 +25,7 @@
  Возраст представлен числом, которое может быть любым положительным целым числом до 199.
  * **/
 const isAgeDiverse = (list) => [...new Set(list.reduce((acc, {age})=>{
-    age>10 && acc.push(Math.floor(age/10))
+    age>=10 && acc.push(Math.floor(age/10))
     return acc
 },[]))].sort((a,b)=>a-b).every((decades,i)=>decades===i+1 || decades>=10)
 
