@@ -26,7 +26,7 @@
  * **/
 const isAgeDiverse = (list) => [...new Set(list.reduce((acc, {age})=>{
     age>=10 && age<100 && acc.push(Math.floor(age/10))
-    age>=100&& acc.push(10)
+    age>=100 && acc.push(10)
     return acc
 },[]))].sort((a,b)=>a-b).length===10
 
