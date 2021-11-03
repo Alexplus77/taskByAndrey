@@ -25,9 +25,10 @@
  Возраст представлен числом, которое может быть любым положительным целым числом до 199.
  * **/
 const isAgeDiverse = (list) => [...new Set(list.reduce((acc, {age})=>{
-    age>=10 && acc.push(Math.floor(age/10))
+    age>=10 && age<100 && acc.push(Math.floor(age/10))
+    age>=100&& acc.push(10)
     return acc
-},[]))].sort((a,b)=>a-b).every((decades,i)=> decades===i+1 || decades>=10)
+},[]))].sort((a,b)=>a-b).length===10
 
 
 console.log(isAgeDiverse([
@@ -42,6 +43,6 @@ console.log(isAgeDiverse([
     {firstName: 'Lukas', lastName: 'X.', country: 'Croatia', continent: 'Europe', age: 75, language: 'Python'},
     {firstName: 'Chloe', lastName: 'K.', country: 'Guernsey', continent: 'Europe', age: 88, language: 'Ruby'},
     {firstName: 'Viktoria', lastName: 'W.', country: 'Bulgaria', continent: 'Europe', age: 98, language: 'PHP'},
-    {firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'JavaScript'},
-    {firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 199, language: 'JavaScript'}
+   // {firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'JavaScript'},
+   // {firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 199, language: 'JavaScript'}
 ]))
