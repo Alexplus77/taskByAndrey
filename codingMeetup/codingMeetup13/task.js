@@ -22,7 +22,7 @@ const isLanguageDiverse = (list) => {
         return acc
     }, {}))
     return Math.max(...countLang) / Math.min(...countLang) === 2
-}
+    }
 
 
 console.log(isLanguageDiverse([{
