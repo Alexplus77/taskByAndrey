@@ -30,4 +30,4 @@ const getMissingIngredients = (recipe, added) => {
         return acc
     }, {})
 }
-console.log(getMissingIngredients({flour: 200, eggs: 1, sugar: 100}, { flour: 1.000000009}))
+console.log(getMissingIngredients({flour: 200, eggs: 1, sugar: 100}, {flour: 500, sugar: 200}))
