@@ -21,7 +21,7 @@ const isLanguageDiverse = (list) => {
         acc[language] = acc[language] + 1 || 1
         return acc
     }, {}))
-    return Math.max(...countLang) / Math.min(...countLang) === 2
+    return Math.max(...countLang) / Math.min(...countLang) <= 2
     }
 
 
