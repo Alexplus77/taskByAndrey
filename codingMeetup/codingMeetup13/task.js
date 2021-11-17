@@ -25,6 +25,7 @@ const isLanguageDiverse = (list) => {
     }
 
 
+
 console.log(isLanguageDiverse([{
     "firstName": "Daniel",
     "lastName": "J.",
