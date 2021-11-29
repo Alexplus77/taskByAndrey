@@ -69,3 +69,7 @@ console.log(isLanguageDiverse([{
     "age": 25,
     "language": "JavaScript"
 }]))
+
+const word='silver laptop on brown wooden table'
+
+console.log(word[0].toUpperCase()+word.slice(1))
